@@ -92,7 +92,8 @@ class _SummaryState extends State<Summary> {
                 style: GoogleFonts.lato(
                   textStyle: TextStyle(
                     fontSize: 20,
-                    fontWeight: FontWeight.bold
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic
                   )
                 ),
               ),
@@ -123,10 +124,10 @@ class _SummaryState extends State<Summary> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Card(
-                    elevation: 5,
+                    elevation: 8,
                     child: Container(
                       width: 150,
-                      height: 90,
+                      height: 95,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -137,21 +138,26 @@ class _SummaryState extends State<Summary> {
                           Text(
                             'Most Cases',
                             style: GoogleFonts.lato(
-                              fontSize: 14
+                              fontSize: 15
                             ),
                           ),
                           Text(
-                            affectedCountryData[0]['cases'].toString()
+                            affectedCountryData[0]['cases'].toString(),
+                            style: GoogleFonts.lato(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FontStyle.italic
+                            ),
                           )
                         ],
                       ),
                     ),
                   ),
                   Card(
-                    elevation: 5,
+                    elevation: 8,
                     child: Container(
                       width: 150,
-                      height: 90,
+                      height: 95,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -162,11 +168,16 @@ class _SummaryState extends State<Summary> {
                           Text(
                             'Most Recoveries',
                             style: GoogleFonts.lato(
-                              fontSize: 14
+                              fontSize: 15
                             ),
                           ),
                           Text(
-                            recoveredCountryData[0]['recovered'].toString()
+                            recoveredCountryData[0]['recovered'].toString(),
+                              style: GoogleFonts.lato(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FontStyle.italic
+                              )
                           )
                         ],
                       ),
@@ -176,16 +187,17 @@ class _SummaryState extends State<Summary> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 10, top: 0, right: 5, bottom: 0),
+              padding: const EdgeInsets.only(left: 15, top: 0, right: 15, bottom: 0),
               child: GridView(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, childAspectRatio: 2.5),
+                    crossAxisCount: 2, childAspectRatio: 2.2),
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Container(
+                    child: Card(
+                      elevation: 8,
                       color: Colors.amber[100],
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -200,9 +212,10 @@ class _SummaryState extends State<Summary> {
                           Text(
                             globalCases,
                             style: GoogleFonts.lato(
-                              fontSize: 18,
-                              color: Colors.amber[700],
-                              fontWeight: FontWeight.bold
+                                fontSize: 18,
+                                color: Colors.amber[700],
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic
                             ),
                           )
                         ],
@@ -211,7 +224,8 @@ class _SummaryState extends State<Summary> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Container(
+                    child: Card(
+                      elevation: 8,
                       color: Colors.blue[100],
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -228,7 +242,8 @@ class _SummaryState extends State<Summary> {
                             style: GoogleFonts.lato(
                                 fontSize: 18,
                                 color: Colors.blue[700],
-                                fontWeight: FontWeight.bold
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic
                             ),
                           )
                         ],
@@ -237,7 +252,8 @@ class _SummaryState extends State<Summary> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Container(
+                    child: Card(
+                      elevation: 8,
                       color: Colors.green[100],
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -254,7 +270,8 @@ class _SummaryState extends State<Summary> {
                             style: GoogleFonts.lato(
                                 fontSize: 18,
                                 color: Colors.green[700],
-                                fontWeight: FontWeight.bold
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic
                             ),
                           )
                         ],
@@ -263,7 +280,8 @@ class _SummaryState extends State<Summary> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Container(
+                    child: Card(
+                      elevation: 8,
                       color: Colors.red[100],
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -280,7 +298,8 @@ class _SummaryState extends State<Summary> {
                             style: GoogleFonts.lato(
                                 fontSize: 18,
                                 color: Colors.red[700],
-                                fontWeight: FontWeight.bold
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FontStyle.italic
                             ),
                           )
                         ],
