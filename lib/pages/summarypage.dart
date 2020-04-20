@@ -224,7 +224,7 @@ class _SummaryState extends State<Summary> {
                             ),
                           ),
                           Text(
-                            globalCases,
+                            globalActive,
                             style: GoogleFonts.lato(
                                 fontSize: 18,
                                 color: Colors.blue[700],
