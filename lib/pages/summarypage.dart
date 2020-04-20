@@ -12,11 +12,10 @@ class Summary extends StatefulWidget {
 
 class _SummaryState extends State<Summary> {
   Map worldData;
-  List countryList;
-
   String globalCases;
   String globalDeaths;
   String globalRecovered;
+  String globalActive;
 
   fetchWorldWideData() async {
     Response response = await get('https://corona.lmao.ninja/v2/all');
@@ -25,6 +24,7 @@ class _SummaryState extends State<Summary> {
       globalCases = '${worldData['cases']}';
       globalDeaths = '${worldData['deaths']}';
       globalRecovered = '${worldData['recovered']}';
+      globalActive = '${worldData['active']}';
     });
   }
 
@@ -98,179 +98,198 @@ class _SummaryState extends State<Summary> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 30, top: 10, right: 30, bottom: 10),
+              padding: const EdgeInsets.only(left: 30, top: 5, right: 30, bottom: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Container(
-                    color: Colors.red,
-                    child: FlutterLogo(
-                      size: 80,
+                    child: Icon(
+                      Icons.sentiment_very_dissatisfied,
+                      size: 70,
                     ),
                   ),
                   Container(
-                    color: Colors.orange,
-                    child: FlutterLogo(
-                      size: 80,
+                    child: Icon(
+                      Icons.whatshot,
+                      size: 70,
                     ),
                   )
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 10),
-              child: Card(
-                elevation: 15,
-                color: Colors.grey[200],
-                child: Container(
-                  height: 250,
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(top: 5.0),
-                        child: Text(
-                          'Total Cases',
-                          style: GoogleFonts.lato(
-                              textStyle: TextStyle(
-                                fontSize: 20
-                              )),
-                        ),
-                      ),
-                      Text(
-                        globalCases,
-                        style: GoogleFonts.lato(
-                          textStyle: TextStyle(
-                              fontSize: 20,
-                              color: Colors.amber[800],
-                              fontWeight: FontWeight.bold
+              padding: const EdgeInsets.only(left: 10, top: 5, right: 10, bottom: 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Card(
+                    elevation: 5,
+                    child: Container(
+                      width: 150,
+                      height: 90,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image.network(
+                            affectedCountryData[0]['countryInfo']['flag'],
+                            height: 40,
+                          ),
+                          Text(
+                            'Most Cases',
+                            style: GoogleFonts.lato(
+                              fontSize: 14
+                            ),
+                          ),
+                          Text(
+                            affectedCountryData[0]['cases'].toString()
                           )
-                        ),
+                        ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 15.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Column(
-                                children: <Widget>[
-                                  Text(
-                                    'Total Deaths',
-                                    style: GoogleFonts.lato(
-                                        textStyle: TextStyle(
-                                          fontSize: 20
-                                        )
-                                    ),
-                                  ),
-                                  Text(
-                                      globalDeaths,
-                                      style: GoogleFonts.lato(
-                                          textStyle: TextStyle(
-                                            fontSize: 20,
-                                            color: Colors.red,
-                                            fontWeight: FontWeight.bold
-                                          )
-                                      )
-                                  )]
-                            ),
-                            Column(
-                                children: <Widget>[
-                                  Text(
-                                    'Total Recoveries',
-                                    style: GoogleFonts.lato(
-                                        textStyle: TextStyle(
-                                          fontSize: 20
-                                        )
-                                    ),
-                                  ),
-                                  Text(
-                                      globalRecovered,
-                                      style: GoogleFonts.lato(
-                                          textStyle: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.green,
-                                              fontWeight: FontWeight.bold
-                                          )
-                                      )
-                                  )]
-                            )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Column(
-                              children: <Widget>[
-                                Text(
-                                  'Most Cases',
-                                  style: GoogleFonts.lato(
-                                      textStyle: TextStyle(
-                                          fontSize: 20
-                                      )
-                                  )
-                                ),
-                                Container(
-                                  width: 100,
-                                  height: 70,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: NetworkImage(affectedCountryData[0]['countryInfo']['flag'])
-                                    ),
-                                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                                  ),
-                                ),
-                                Text(
-                                  mostAffectedCountry,
-                                  style: GoogleFonts.lato(
-                                      textStyle: TextStyle(
-                                          fontSize: 14
-                                      )
-                                  ),
-                                )
-                              ],
-                            ),
-                            Column(
-                              children: <Widget>[
-                                Text(
-                                    'Most Recoveries',
-                                    style: GoogleFonts.lato(
-                                        textStyle: TextStyle(
-                                            fontSize: 20
-                                        )
-                                    )
-                                ),
-                                Container(
-                                  width: 100,
-                                  height: 70,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: NetworkImage(recoveredCountryData[0]['countryInfo']['flag'])
-                                    ),
-                                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                                  ),
-                                ),
-                                Text(
-                                  mostRecoveredCountry,
-                                  style: GoogleFonts.lato(
-                                      textStyle: TextStyle(
-                                          fontSize: 14
-                                      )
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
+                  Card(
+                    elevation: 5,
+                    child: Container(
+                      width: 150,
+                      height: 90,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image.network(
+                            recoveredCountryData[0]['countryInfo']['flag'],
+                            height: 40,
+                          ),
+                          Text(
+                            'Most Recoveries',
+                            style: GoogleFonts.lato(
+                              fontSize: 14
+                            ),
+                          ),
+                          Text(
+                            recoveredCountryData[0]['recovered'].toString()
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                ],
               ),
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, top: 0, right: 5, bottom: 0),
+              child: GridView(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, childAspectRatio: 2.5),
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      color: Colors.amber[100],
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'Cases',
+                            style: GoogleFonts.lato(
+                              color: Colors.amber[700],
+                              fontSize: 16
+                            ),
+                          ),
+                          Text(
+                            globalCases,
+                            style: GoogleFonts.lato(
+                              fontSize: 18,
+                              color: Colors.amber[700],
+                              fontWeight: FontWeight.bold
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      color: Colors.blue[100],
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'Active',
+                            style: GoogleFonts.lato(
+                                color: Colors.blue[700],
+                                fontSize: 16
+                            ),
+                          ),
+                          Text(
+                            globalActive,
+                            style: GoogleFonts.lato(
+                                fontSize: 18,
+                                color: Colors.blue[700],
+                                fontWeight: FontWeight.bold
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      color: Colors.green[100],
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'Recoveries',
+                            style: GoogleFonts.lato(
+                                color: Colors.green[700],
+                                fontSize: 16
+                            ),
+                          ),
+                          Text(
+                            globalRecovered,
+                            style: GoogleFonts.lato(
+                                fontSize: 18,
+                                color: Colors.green[700],
+                                fontWeight: FontWeight.bold
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      color: Colors.red[100],
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'Deaths',
+                            style: GoogleFonts.lato(
+                                color: Colors.red[700],
+                                fontSize: 16
+                            ),
+                          ),
+                          Text(
+                            globalDeaths,
+                            style: GoogleFonts.lato(
+                                fontSize: 18,
+                                color: Colors.red[700],
+                                fontWeight: FontWeight.bold
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              )
+            ),
           ],
         ),
       ),
@@ -280,7 +299,7 @@ class _SummaryState extends State<Summary> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             new IconButton(icon: new Icon(Icons.list), onPressed: null),
-            new IconButton(icon: new Icon(Icons.map), onPressed: null),
+            new IconButton(icon: new Icon(Icons.public), onPressed: null),
             new IconButton(icon: new Icon(Icons.info), onPressed: null)
           ],
         ),
