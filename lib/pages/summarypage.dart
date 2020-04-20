@@ -98,20 +98,20 @@ class _SummaryState extends State<Summary> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 30, top: 10, right: 30, bottom: 0),
+              padding: const EdgeInsets.only(left: 30, top: 5, right: 30, bottom: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Container(
-                    color: Colors.red,
-                    child: FlutterLogo(
-                      size: 80,
+                    child: Icon(
+                      Icons.sentiment_very_dissatisfied,
+                      size: 70,
                     ),
                   ),
                   Container(
-                    color: Colors.orange,
-                    child: FlutterLogo(
-                      size: 80,
+                    child: Icon(
+                      Icons.whatshot,
+                      size: 70,
                     ),
                   )
                 ],
@@ -299,7 +299,7 @@ class _SummaryState extends State<Summary> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             new IconButton(icon: new Icon(Icons.list), onPressed: null),
-            new IconButton(icon: new Icon(Icons.map), onPressed: null),
+            new IconButton(icon: new Icon(Icons.public), onPressed: null),
             new IconButton(icon: new Icon(Icons.info), onPressed: null)
           ],
         ),

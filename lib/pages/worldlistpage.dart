@@ -85,7 +85,7 @@ class _WorldListState extends State<WorldList> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             new IconButton(icon: new Icon(Icons.list), onPressed: null),
-            new IconButton(icon: new Icon(Icons.map), onPressed: null),
+            new IconButton(icon: new Icon(Icons.public), onPressed: null),
             new IconButton(icon: new Icon(Icons.info), onPressed: null)
           ],
         ),
