@@ -74,7 +74,7 @@ class _InformationState extends State<Information> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, top: 5),
+                  padding: const EdgeInsets.only(left: 15, top: 10),
                   child: Text(
                       'A new, continuous cough. Meaning 3 or more coughiung episodes in 24 hours',
                     style: GoogleFonts.lato(
@@ -84,7 +84,7 @@ class _InformationState extends State<Information> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, top: 5),
+                  padding: const EdgeInsets.only(left: 15, top: 10),
                   child: Text(
                       'Some have noted a loss in smell and taste',
                     style: GoogleFonts.lato(
@@ -125,6 +125,16 @@ class _InformationState extends State<Information> {
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: Text(
+                    'If you or someone in your household contracts the virus, you should self isolate for 14 days',
+                    style: GoogleFonts.lato(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15, top: 10),
+                  child: Text(
                     'Wash your hands with soap and water often – for at least 20 seconds',
                     style: GoogleFonts.lato(
                         fontSize: 14,
@@ -133,7 +143,7 @@ class _InformationState extends State<Information> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, top: 5),
+                  padding: const EdgeInsets.only(left: 15, top: 10),
                   child: Text(
                     'Wash your hands as soon as you get home',
                     style: GoogleFonts.lato(
@@ -143,7 +153,7 @@ class _InformationState extends State<Information> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, top: 5),
+                  padding: const EdgeInsets.only(left: 15, top: 10),
                   child: Text(
                     'Cover your mouth and nose with a tissue when you cough or sneeze',
                     style: GoogleFonts.lato(
@@ -153,7 +163,7 @@ class _InformationState extends State<Information> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, top: 5),
+                  padding: const EdgeInsets.only(left: 15, top: 10),
                   child: Text(
                     'Put used tissues in the bin immediately and wash your hands',
                     style: GoogleFonts.lato(
@@ -163,7 +173,7 @@ class _InformationState extends State<Information> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, top: 5),
+                  padding: const EdgeInsets.only(left: 15, top: 10),
                   child: Text(
                     'Not touch your face if your hands are not clean',
                     style: GoogleFonts.lato(
