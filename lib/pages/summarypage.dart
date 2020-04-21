@@ -311,18 +311,7 @@ class _SummaryState extends State<Summary> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: new BottomAppBar(
-        color: Colors.blue,
-        child: new Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            new IconButton(icon: new Icon(Icons.list), onPressed: null),
-            new IconButton(icon: new Icon(Icons.public), onPressed: null),
-            new IconButton(icon: new Icon(Icons.info), onPressed: null)
-          ],
-        ),
-      ),
+      )
     );
   }
 }
