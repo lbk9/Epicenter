@@ -29,7 +29,7 @@ class _WorldListState extends State<WorldList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.blue[900],
         title: Text(
           'World List',
         ),
@@ -78,18 +78,7 @@ class _WorldListState extends State<WorldList> {
             ),
           );
         },
-      ),
-      bottomNavigationBar: new BottomAppBar(
-        color: Colors.blue,
-        child: new Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            new IconButton(icon: new Icon(Icons.list), onPressed: null),
-            new IconButton(icon: new Icon(Icons.public), onPressed: null),
-            new IconButton(icon: new Icon(Icons.info), onPressed: null)
-          ],
-        ),
-      ),
+      )
     );
   }
 }

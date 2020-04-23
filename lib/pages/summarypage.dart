@@ -68,21 +68,16 @@ class _SummaryState extends State<Summary> {
                     bottomRight: Radius.elliptical(150, 70),
                     bottomLeft: Radius.elliptical(150, 70)),
                 child: Container(
-                  color: Colors.blue,
                   width: double.infinity,
                   height: 200,
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                            'Stay Home'
-                        ),
-                        Text(
-                            'Save Lives'
-                        )
-                      ],
-                    ),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        'assets/c19header.png'
+                      ),
+                      fit: BoxFit.fill
+                    )
+                  ),
                 ),
               ),
             Padding(
@@ -311,18 +306,7 @@ class _SummaryState extends State<Summary> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: new BottomAppBar(
-        color: Colors.blue,
-        child: new Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            new IconButton(icon: new Icon(Icons.list), onPressed: null),
-            new IconButton(icon: new Icon(Icons.public), onPressed: null),
-            new IconButton(icon: new Icon(Icons.info), onPressed: null)
-          ],
-        ),
-      ),
+      )
     );
   }
 }

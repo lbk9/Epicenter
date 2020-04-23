@@ -20,6 +20,7 @@ class _InformationState extends State<Information> {
         title: Text(
           'Important Information'
         ),
+        backgroundColor: Colors.blue[900],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -186,18 +187,7 @@ class _InformationState extends State<Information> {
             ),
           ),
         ],
-      ),
-      bottomNavigationBar: new BottomAppBar(
-        color: Colors.blue,
-        child: new Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            new IconButton(icon: new Icon(Icons.list), onPressed: null),
-            new IconButton(icon: new Icon(Icons.public), onPressed: null),
-            new IconButton(icon: new Icon(Icons.info), onPressed: null)
-          ],
-        ),
-      ),
+      )
     );
   }
 }
