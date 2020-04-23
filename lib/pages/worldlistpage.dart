@@ -29,7 +29,7 @@ class _WorldListState extends State<WorldList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.blue[900],
         title: Text(
           'World List',
         ),

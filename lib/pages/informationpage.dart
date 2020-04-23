@@ -20,6 +20,7 @@ class _InformationState extends State<Information> {
         title: Text(
           'Important Information'
         ),
+        backgroundColor: Colors.blue[900],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

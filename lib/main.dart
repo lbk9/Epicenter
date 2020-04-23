@@ -14,7 +14,7 @@ class MyHome extends StatefulWidget {
 }
 
 class MyHomeState extends State<MyHome> {
-  int currentIndex = 0;
+  int currentIndex = 1;
   final List<Widget> childPages = [
     WorldList(),
     Summary(),
@@ -33,7 +33,7 @@ class MyHomeState extends State<MyHome> {
       body: childPages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTapped,
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.blue[900],
         currentIndex: currentIndex,
         fixedColor: Colors.white,
         items: [
